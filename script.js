@@ -1,4 +1,4 @@
-const pagesTrack = document.getElementById('pagesTrack');
+ const pagesTrack = document.getElementById('pagesTrack');
 const hudClock = document.getElementById('hudClock');
 const currentDayLabel = document.getElementById('currentDayLabel');
 const pageNumIndicator = document.getElementById('pageNumIndicator');
@@ -163,7 +163,6 @@ function resetSpeedTestGame() {
   renderSpeedWordsCanvas();
 }
 renderSpeedWordsCanvas();
-
 const accuracyWordsDisplay = document.getElementById('accuracyWordsDisplay');
 const accuracyInputBox = document.getElementById('accuracyInputBox');
 const accuracyPctDisplay = document.getElementById('accuracyPctDisplay');

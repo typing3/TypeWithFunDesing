@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+        <div class="hud-ambient-wash"></div>
+
+<header class="hud-global-header">
+  <div class="brand-monogram">TYPEWITHFUN // ULTIMATE</div>
+  <div class="clock-telemetry-module" id="hudClock">00:00:00</div>
+  
+  <div class="header-control-hub">
+    <div class="modern-toggle-container">
+      <span class="toggle-label-text">LIGHT</span>
+      <label class="ui-switch-track">
+        <input type="checkbox" id="lightDarkSwitch" onchange="toggleLightDarkModeSystem()">
+        <span class="ui-switch-slider"></span>
+      </label>
+      <span class="toggle-label-text">DARK</span>
+    </div>
+
+    <button class="settings-gear-btn" onclick="toggleSettingsPanelOverlay()" aria-label="Open Palette Dashboard">
+      <svg class="gear-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 items 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
+
+    <div class="calendar-status-pill">
+      <span class="active-pulse-dot"></span>
+      <span id="currentDayLabel" class="weekday-string">TODAY</span>
+    </div>
+  </div>
+</header>
+
+<nav class="hud-horizontal-sub-nav">
+  <div class="sub-nav-wrapper">
+    <button onclick="jumpToWorkspacePage(0)" class="sub-nav-link active-tab" data-tab="0"><span>SPEED TEST</span></button>
+    <button onclick="jumpToWorkspacePage(1)" class="sub-nav-link" data-tab="1"><span>ACCURACY DRILL</span></button>
+    <button onclick="jumpToWorkspacePage(2)" class="sub-nav-link" data-tab="2"><span>CUSTOM QUOTE</span></button>
+    <button onclick="jumpToWorkspacePage(3)" class="sub-nav-link" data-tab="3"><span>SCORE MATRIX</span></button>
+  </div>
+</nav>
+
+<aside class="hud-half-page-settings-drawer" id="settingsDrawer">
+  <div class="drawer-header-row">
+    <h2 class="drawer-title">CORE PALETTE SELECTION</h2>
+    <button class="drawer-close-btn" onclick="toggleSettingsPanelOverlay()">✕</button>
+  </div>
+  <p class="drawer-desc">Select an premium minimalist theme matrix. Color parameters will map across background text weights synchronously.</p>
+  
+  <div class="theme-palette-grid-selection">
+    <button class="palette-option-btn color-amethyst" onclick="applyGlobalColorTheme('amethyst')">
+      <span class="color-preview-circle" style="background: #e0a96d;"></span>
+      <span class="palette-lbl">Smoked Amethyst</span>
+    </button>
+    <button class="palette-option-btn color-emerald" onclick="applyGlobalColorTheme('emerald')">
+      <span class="color-preview-circle" style="background: #a2e8dd;"></span>
+      <span class="palette-lbl">Jade Verdigris</span>
+    </button>
+    <button class="palette-option-btn color-sapphire" onclick="applyGlobalColorTheme('sapphire')">
+      <span class="color-preview-circle" style="background: #9fa8da;"></span>
+      <span class="palette-lbl">Nordic Glacier</span>
+    </button>
+    <button class="palette-option-btn color-monochrome" onclick="applyGlobalColorTheme('monochrome')">
+      <span class="color-preview-circle" style="background: #ffffff;"></span>
+      <span class="palette-lbl">Pure Alabaster</span>
+    </button>
+  </div>
+</aside>
+
+<main class="hud-pages-viewport" id="pagesTrack">
+  
+  <section class="hud-page-view">
+    <div class="static-production-grid-matrix grid-stretched-architecture">
+      
+      <div class="static-glass-card size-double-height">
+        <span class="node-serial-id">VEL // 01</span>
+        <h1 class="hud-main-heading">Velocity <br><span class="serif-glint-accent">Sprint Test</span></h1>
+        <p class="hud-description-text">Type inside the oversized field panel. The internal 30-second processing execution sequence starts immediately with your first input stroke.</p>
+        <button class="hud-action-btn" onclick="resetSpeedTestGame()">RESET SPRINT</button>
+      </div>
+      
+      <div class="static-glass-card size-expanded-canvas-block typing-arena-card">
+        <span class="node-serial-id">VEL // 02</span>
+        <span class="module-section-title">Active Words Canvas</span>
+        <div class="word-display-field size-magnified-text" id="speedWordsDisplay">Click input and type...</div>
+        <input type="text" class="hud-line-input type-input-matrix" id="speedInputBox" placeholder="Type here to start tracking..." autocomplete="off">
+      </div>
+      
+      <div class="static-glass-card block-shifted-away">
+        <span class="node-serial-id">VEL // 03</span>
+        <span class="module-section-title">Speed Rate</span>
+        <div class="metric-center-layout">
+          <div class="circular-dial-container"><div class="center-metric-readout" id="wpmDisplay">00</div></div>
+        </div>
+        <span class="metric-footer-label">WORDS PER MINUTE (WPM)</span>
+      </div>
+      
+      <div class="static-glass-card block-shifted-away">
+        <span class="node-serial-id">VEL // 04</span>
+        <span class="module-section-title">Sprint Timer</span>
+        <div class="metric-center-layout">
+          <div class="circular-dial-container"><div class="center-metric-readout" id="timerDisplay">30s</div></div>
+        </div>
+        <span class="metric-footer-label">SECONDS SECURE GAP</span>
+      </div>
+
+    </div>
+  </section>
+  <!-- ==================== STAGE 02: EXPANDED HARDCORE ACCURACY DRILL ==================== -->
+  <section class="hud-page-view">
+    <div class="static-production-grid-matrix grid-stretched-architecture">
+      
+      <div class="static-glass-card size-double-height">
+        <span class="node-serial-id">ACC // 01</span>
+        <h1 class="hud-main-heading">Precision <br><span class="serif-glint-accent">Drill Core</span></h1>
+        <p class="hud-description-text">A high-stakes precision matrix. Any type-error halts progression rules. Flawless tracking registers records into scoreboard memory modules.</p>
+        <button class="hud-action-btn" onclick="resetAccuracyDrillGame()">RESET DRILL</button>
+      </div>
+      
+      <div class="static-glass-card size-expanded-canvas-block typing-arena-card">
+        <span class="node-serial-id">ACC // 02</span>
+        <span class="module-section-title">Hardcore Accuracy Target Canvas</span>
+        <div class="word-display-field size-magnified-text" id="accuracyWordsDisplay">Focus parameter tracking stream...</div>
+        <input type="text" class="hud-line-input type-input-matrix" id="accuracyInputBox" placeholder="Type with zero mistakes..." autocomplete="off">
+      </div>
+      
+      <div class="static-glass-card size-expanded-canvas-block block-shifted-away text-card-adjusted">
+        <span class="node-serial-id">ACC // 03</span>
+        <span class="module-section-title">Accuracy Balanced Meter Board</span>
+        <div class="metric-center-layout" style="flex-direction: row; gap: 60px;">
+          <div class="circular-dial-container"><div class="center-metric-readout" id="accuracyPctDisplay">100%</div></div>
+          <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+            <div class="log-row"><span>ERRORS DETECTED // </span><span id="errorCountDisplay" style="color: #ff4757; font-weight: bold; font-size: 14px; margin-left: 10px;">00</span></div>
+            <div class="log-row"><span>COMBO STREAK // </span><span id="comboCountDisplay" style="color: #00ffaa; font-weight: bold; font-size: 14px; margin-left: 10px;">00</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== STAGE 03: CUSTOM BLUEPRINTS SANDBOX ==================== -->
+  <section class="hud-page-view">
+    <div class="static-production-grid-matrix grid-stretched-architecture">
+      
+      <div class="static-glass-card size-double-height">
+        <span class="node-serial-id">CST // 01</span>
+        <h1 class="hud-main-heading">Custom <br><span class="serif-glint-accent">Quote Engine</span></h1>
+        <p class="hud-description-text">Inject customized raw strings into the editor frame box below. The pipeline loops will automatically distribute character strings onto your game canvas.</p>
+      </div>
+      
+      <div class="static-glass-card size-wide-input-block">
+        <span class="node-serial-id">CST // 02</span>
+        <span class="module-section-title">Quote Blueprint Input Sandbox Field</span>
+        <textarea class="hud-custom-textarea" id="customQuoteCreator" placeholder="Paste or type personal text values here to compile a dedicated track module..."></textarea>
+      </div>
+      
+      <div class="static-glass-card size-wide-input-block typing-arena-card">
+        <span class="node-serial-id">CST // 03</span>
+        <span class="module-section-title">Generated Sandbox Sandbox Canvas</span>
+        <div class="word-display-field" id="customWordsDisplay">Your custom layout text array will render here...</div>
+        <input type="text" class="hud-line-input type-input-matrix" id="customInputBox" placeholder="Inject quote first then type..." autocomplete="off" disabled>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== STAGE 04: HISTORICAL SCORE BOARD ==================== -->
+  <section class="hud-page-view">
+    <div class="static-production-grid-matrix grid-stretched-architecture">
+      
+      <div class="static-glass-card size-double-height">
+        <span class="node-serial-id">LOG // 01</span>
+        <h1 class="hud-main-heading">Analytical <br><span class="serif-glint-accent">Score Matrix</span></h1>
+        <p class="hud-description-text">Historical session matrix tracker. Successful script clearance loops index terminal speeds and performance parameters directly onto this ledger dashboard layout.</p>
+        <button class="hud-action-btn" onclick="wipeScoreboardMatrixLogs()">PURGE LEDGER</button>
+      </div>
+      
+      <div class="static-glass-card size-wide-input-block scroll-card-box">
+        <span class="node-serial-id">LOG // 02</span>
+        <span class="module-section-title">Session High Scores Historical Feed</span>
+        <div class="active-task-list-container" id="scoreboardLogsContainer">
+        </div>
+      </div>
+      
+      <div class="static-glass-card">
+        <span class="node-serial-id">LOG // 03</span>
+        <span class="module-section-title">Hardware Performance Link</span>
+        <div class="telemetry-log-lines">
+          <div class="log-row"><span>ENGINE STATUS // RUNNING</span><span class="dot-green"></span></div>
+          <div class="log-row"><span>POLLING DELAY // 1.2ms</span><span class="dot-green"></span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<button class="hud-right-nav-arrow" onclick="stepToNextWorkspacePage()" aria-label="Next Horizon Screen">
+  <svg class="arrow-svg-icon" viewBox="0 0 24 24">
+    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<div class="hud-bottom-page-index-tracker">TYPEWITHFUN UNIFIED CORE SYSTEM // ENGINE MATRIX ACTIVE</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
